@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./variables";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  color: $defaultText;
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: $headerText;
+}
+
+// in case I want to change the headers
+%title {
+  font-weight: bold;
+}
+
+h1,
+.page__title {
+  @extend %title;
+  font-size: 3rem;
+}
+h2,
+.section__title {
+  @extend %title;
+  font-size: 1.5rem;
+}

@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ConvertComponent } from './convert/convert.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConvertComponent
+    ConvertComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
