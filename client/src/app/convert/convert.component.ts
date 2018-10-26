@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConvertComponent implements OnInit {
 
+  convert = 'test!';
+
   constructor() { }
 
   ngOnInit() {
