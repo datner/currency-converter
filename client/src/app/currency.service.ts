@@ -17,7 +17,7 @@ export class CurrencyService {
 
   constructor(private http: HttpClient) {}
 
-  private url(endpoint: String): String {
+  private url(endpoint: string): string {
     return `${this.api}/${endpoint}?key=${this.key}`;
   }
 

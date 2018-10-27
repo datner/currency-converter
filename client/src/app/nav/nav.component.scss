@@ -50,7 +50,7 @@
     }
     &:hover,
     &:focus,
-    &.active {
+    &.--active {
       color: $defaultText;
       outline: none;
       &:after {

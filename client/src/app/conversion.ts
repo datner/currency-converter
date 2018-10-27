@@ -8,14 +8,14 @@ export class Conversion {
     this.to = data.to;
     this.amount = data.amount;
   }
-  get sum(): String {
+  get sum(): string {
     return ((this.amount * this.from.rate) / this.to.rate).toPrecision(6);
   }
 
-  get toRate(): String {
+  get toRate(): string {
     return (this.from.rate / this.to.rate).toPrecision(6);
   }
-  get fromRate(): String {
+  get fromRate(): string {
     return (this.to.rate / this.from.rate).toPrecision(6);
   }
 }

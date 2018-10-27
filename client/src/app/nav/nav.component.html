@@ -6,9 +6,11 @@
       <span class="logo__end">Exchange</span>
     </div>
 
-    <div class='nav__links'>
-      <a routerLink="/convert">currency converter</a>
-      <a routerLink="/convert">view convertsion history</a>
+    <div class='nav__links' *ngIf=loggedIn>
+      <a routerLink="/convert" (click)="onClick('convert')" [class.--active]="current === '/convert'">currency
+        converter</a>
+      <a routerLink="/history" (click)="onClick('history')" [class.--active]="current === '/history'">view convertsion
+        history</a>
     </div>
 
   </div>

@@ -10,10 +10,10 @@ import { Currency } from "../currency";
 })
 export class ConvertComponent implements OnInit {
   amount: Number;
-  from: String = "";
-  to: String = "";
+  from: string = "";
+  to: string = "";
   rates: Object = {};
-  badInput: String;
+  badInput: string;
   lastConversion: Conversion;
   converted: Boolean;
 

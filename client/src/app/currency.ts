@@ -1,5 +1,5 @@
-export class Currency {
-  currency: String;
+export interface Currency {
+  currency: string;
   rate: number;
   timestamp: Date;
 }

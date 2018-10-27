@@ -1,0 +1,12 @@
+<div class="form" [@badLoginAnimation]='badLoginAnimation' (@badLoginAnimation.done)='resetState()'>
+  <form>
+    <h1>Login</h1>
+    <div class="form__field --no-label">
+      <input [(ngModel)]='user' name='user' type="text" placeholder="Username" />
+    </div>
+    <div class="form__field --no-label">
+      <input [(ngModel)]='password' name='password' type="password" placeholder="Password" />
+    </div>
+    <a class="button --primary" (click)='onLogin()'>login</a>
+  </form>
+</div>
