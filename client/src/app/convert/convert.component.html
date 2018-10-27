@@ -1,4 +1,30 @@
-<p>
-  convert works!
-  {{convert}}
-</p>
+<div>
+  <form>
+    <h1>I want to convert</h1>
+    <div class='form'>
+      <div class="form__field">
+        <label for="amount">amount</label>
+        <input [(ngModel)]='amount' type="number" name='amount' />
+      </div>
+      <div class="form__field">
+        <label for="from">from</label>
+        <input [(ngModel)]='from' [class.--error]="badInput==='from' || badInput==='both' " type="text" name='from' />
+      </div>
+      <i class='material-icons md-36 button --icon' (click)='onSwap()'>compare_arrows</i>
+      <div class="form__field">
+        <label for="to">to</label>
+        <input [(ngModel)]='to' [class.--error]="badInput==='to' || badInput==='both' " type="text" name='to' />
+      </div>
+      <a class='button --primary' (click)='onConvert()'>convert</a>
+    </div>
+  </form>
+
+</div>
+<div *ngIf="lastConversion; else noConversion">
+  <app-last-conversion [conversion]='lastConversion'></app-last-conversion>
+</div>
+<ng-template #noConversion>
+  <div style='text-align: center'>
+    <h1>Please Make a conversion :)</h1>
+  </div>
+</ng-template>

@@ -1,0 +1,13 @@
+@import "../../variables";
+
+.conversion__container {
+  text-align: center;
+}
+
+h1 {
+  font-weight: lighter;
+  .sum {
+    font-weight: bold;
+    color: $accent;
+  }
+}
