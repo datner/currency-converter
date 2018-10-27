@@ -7,7 +7,7 @@ import { filter } from "rxjs/operators";
   templateUrl: "./nav.component.html",
   styleUrls: ["./nav.component.scss"]
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   @Input()
   loggedIn: Boolean;
   current: string;
@@ -17,6 +17,11 @@ export class NavComponent implements OnInit {
       .subscribe(event => {
         this.current = event.url;
       });
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.loggedIn = false;
   }
 
   onClick(url: string): void {

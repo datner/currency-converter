@@ -102,3 +102,16 @@
     font-weight: bold;
   }
 }
+
+.nav__logout {
+  text-transform: uppercase;
+  text-align: end;
+  font-weight: bold;
+  font-size: 0.9rem;
+  a {
+    color: $primary;
+    &:hover {
+      color: $warn;
+    }
+  }
+}

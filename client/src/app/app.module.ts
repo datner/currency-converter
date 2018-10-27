@@ -10,6 +10,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavComponent } from "./nav/nav.component";
 import { LastConversionComponent } from "./last-conversion/last-conversion.component";
 import { LoginComponent } from "./login/login.component";
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginComponent } from "./login/login.component";
     NavComponent,
     LastConversionComponent,
     LoginComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

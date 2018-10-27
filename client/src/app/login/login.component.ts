@@ -42,25 +42,22 @@ import { Router } from "@angular/router";
   ]
 })
 export class LoginComponent implements OnInit {
-  user: string = "user1";
-  password: string = "pass1";
-  badLoginAnimation: string = "unchecked";
+  user = "";
+  password = "";
+  badLoginAnimation = "unchecked";
 
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private LoginService: LoginService, private Router: Router) {}
 
   onLogin() {
-    console.log("Logging in..");
     this.LoginService.login(this.user, this.password).subscribe(
       user => {
-        console.log("success ", user);
         this.badLoginAnimation = "success";
         setTimeout(() => {
           this.Router.navigateByUrl("/convert");
         }, 600);
       },
       error => {
-        console.log("error: ", error);
         this.badLoginAnimation = "invalid";
       }
     );
@@ -71,6 +68,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line:no-unused-expression
     localStorage.getItem("login") && this.Router.navigateByUrl("/convert");
   }
 }

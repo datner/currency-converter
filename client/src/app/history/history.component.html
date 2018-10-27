@@ -1,0 +1,41 @@
+<div *ngIf="histories && histories.length >= 1;then thenBlock else noHistory; "></div>
+<ng-template #thenBlock>
+  <h1>
+    Conversion history
+  </h1>
+  <ul class="list">
+    <li class="list__headers">
+      <div>
+        date
+      </div>
+      <div>
+        event
+      </div>
+      <div>
+        actions
+      </div>
+    </li>
+    <li *ngFor='let history of histories; index as i' class="list__row">
+      <div class="row__date">
+        {{history.date}} @ {{history.time}}
+      </div>
+      <div class="row__event">
+        Converted an amount of {{history.amount}} from {{history.from.currency}} to {{history.to.currency}}
+      </div>
+      <div class="row__actions">
+        <div class='actions__action --primary' (click)='onView(i)'>
+          <i class='material-icons'>visibility</i>
+          View
+        </div>
+        <div class='actions__action --warn' (click)='onDelete(i)'>
+          <i class='material-icons'>delete_forever</i>
+          Delete from history
+        </div>
+      </div>
+    </li>
+  </ul>
+
+</ng-template>
+<ng-template #noHistory>
+  <h1>No conversions were made :'(</h1>
+</ng-template>

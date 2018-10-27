@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const redirectUrl = next["_routerState"]["url"];
+    const redirectUrl = next.routeConfig.path;
 
     if (localStorage.getItem("login")) {
       return true;

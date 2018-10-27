@@ -25,9 +25,8 @@ export class LoginService {
               login.username === auth.username &&
               login.password === auth.password
           );
-          console.log(user[0]);
           if (user[0]) {
-            localStorage.setItem("login", true);
+            localStorage.setItem("login", "true");
             resolve(user[0]);
           } else {
             reject(
@@ -39,7 +38,6 @@ export class LoginService {
   };
 
   login(username: string, password: string): Observable<User> {
-    console.log("logging in from LoginService");
     return this.http.post("https://payconiq.com/api/login", {
       username: username,
       password: password

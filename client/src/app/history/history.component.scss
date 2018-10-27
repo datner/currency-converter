@@ -1,0 +1,77 @@
+@import "../../variables";
+$flex-basis: 400px;
+
+%row {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  div:first-of-type {
+    flex-basis: $flex-basis;
+  }
+  div:last-of-type {
+    flex-basis: calc(#{$flex-basis} * 1.5);
+  }
+  div {
+    text-align: left;
+    width: 100%;
+    padding-left: 22px;
+    line-height: 50px;
+  }
+  &:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
+
+.list {
+  @extend %box-shadow;
+  width: 100%;
+  background: white;
+  padding: 0;
+  .list__row {
+    @extend %row;
+    .row__actions {
+      cursor: pointer;
+      font-size: 0.9rem;
+      visibility: hidden;
+      display: flex;
+      div {
+        display: flex;
+        align-items: center;
+      }
+      i {
+        font-size: 1rem;
+        margin-right: 8px;
+      }
+      .actions__action {
+        padding-left: unset;
+      }
+    }
+    &:hover {
+      .row__actions {
+        visibility: visible;
+        align-items: center;
+      }
+    }
+  }
+  .list__headers {
+    @extend %row;
+    color: $headerText;
+    text-transform: capitalize;
+    font-weight: bold;
+    div {
+      width: 100%;
+    }
+  }
+}
+.--primary:active {
+  &.--invert {
+    color: white;
+    background: $primary;
+  }
+}
+.--warn:active {
+  &.--invert {
+    color: white;
+    background: $warn;
+  }
+}

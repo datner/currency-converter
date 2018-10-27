@@ -1,3 +1,5 @@
+import { Router } from "@angular/router";
+import { HistoryService } from "./../history.service";
 import { Conversion } from "./../conversion";
 import { CurrencyService } from "./../currency.service";
 import { Component, OnInit } from "@angular/core";
@@ -17,7 +19,11 @@ export class ConvertComponent implements OnInit {
   lastConversion: Conversion;
   converted: Boolean;
 
-  constructor(private CurrencyService: CurrencyService) {}
+  constructor(
+    private router: Router,
+    private CurrencyService: CurrencyService,
+    private HistoryService: HistoryService
+  ) {}
 
   onSwap(): void {
     [this.from, this.to] = [this.to, this.from];
@@ -26,8 +32,6 @@ export class ConvertComponent implements OnInit {
   onConvert(): void {
     const fromRate = this.rates[this.from];
     const toRate = this.rates[this.to];
-    console.log(`convert ${this.from} to ${this.to}`);
-    console.log(fromRate, toRate);
 
     // the laziest error handling ever
     if (!fromRate && !toRate) {
@@ -44,6 +48,7 @@ export class ConvertComponent implements OnInit {
         amount: this.amount
       });
       this.converted = true;
+      this.HistoryService.addConversion(this.lastConversion);
     }
   }
 
@@ -55,5 +60,15 @@ export class ConvertComponent implements OnInit {
 
   ngOnInit() {
     this.getRates();
+    const { index } = this.router.routerState.snapshot.root.queryParams;
+    if (index) {
+      const c = JSON.parse(localStorage.getItem("history"))[index];
+      [this.amount, this.from, this.to, this.lastConversion] = [
+        c.amount,
+        c.from.currency,
+        c.to.currency,
+        new Conversion(c)
+      ];
+    }
   }
 }

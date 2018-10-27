@@ -1,3 +1,4 @@
+import { HistoryComponent } from "./history/history.component";
 import { AuthGuard } from "./auth.guard";
 import { LoginComponent } from "./login/login.component";
 import { ConvertComponent } from "./convert/convert.component";
@@ -6,6 +7,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   { path: "convert", component: ConvertComponent, canActivate: [AuthGuard] },
+  { path: "history", component: HistoryComponent, canActivate: [AuthGuard] },
   {
     path: "",
     redirectTo: "/convert",

@@ -6,11 +6,16 @@
       <span class="logo__end">Exchange</span>
     </div>
 
-    <div class='nav__links' *ngIf=loggedIn>
-      <a routerLink="/convert" (click)="onClick('convert')" [class.--active]="current === '/convert'">currency
+    <div class='nav__links' *ngIf='loggedIn'>
+      <a routerLink="/convert" (click)="onClick('convert')" [class.--active]="current.startsWith('/convert')">currency
         converter</a>
-      <a routerLink="/history" (click)="onClick('history')" [class.--active]="current === '/history'">view convertsion
+      <a routerLink="/history" (click)="onClick('history')" [class.--active]="current.startsWith('/history')">view
+        convertsion
         history</a>
+    </div>
+
+    <div class="nav__logout" *ngIf='loggedIn'>
+      <a routerLink='/login' (click)='logout()'>logout</a>
     </div>
 
   </div>

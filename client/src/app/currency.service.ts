@@ -39,9 +39,8 @@ export class CurrencyService {
   }
 
   getRates(): Observable<Currency[]> {
-    return this.http.get<Currency[]>(this.url("exchange-rates")).pipe(
-      tap(rates => console.log("fetched rates! ", rates)),
-      catchError(this.handleError("getRates", []))
-    );
+    return this.http
+      .get<Currency[]>(this.url("exchange-rates"))
+      .pipe(catchError(this.handleError("getRates", [])));
   }
 }
