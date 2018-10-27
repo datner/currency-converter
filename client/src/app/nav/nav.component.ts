@@ -15,7 +15,7 @@ export class NavComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(event => {
-        this.current = event.url;
+        this.current = event instanceof NavigationEnd && event.url;
       });
   }
 
