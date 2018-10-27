@@ -6,3 +6,12 @@ $warn: #c70d38;
 $defaultText: #404040;
 $headerText: #8d8d8d;
 $max-width: 1200px;
+
+%box-shadow {
+  box-shadow: 0px 2px 15px 1px rgba(0, 0, 0, 0.15);
+}
+
+// in case I want to change the headers
+%title {
+  font-weight: bold;
+}
