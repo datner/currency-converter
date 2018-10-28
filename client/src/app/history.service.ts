@@ -27,7 +27,7 @@ export class HistoryService {
       return [];
     }
     const postHistory = prevHistory.splice(index, 1);
-    localStorage.setItem("history", JSON.stringify(postHistory));
-    return postHistory;
+    localStorage.setItem("history", JSON.stringify(prevHistory));
+    return prevHistory;
   }
 }
